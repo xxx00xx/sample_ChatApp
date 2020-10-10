@@ -53,9 +53,10 @@ class ViewController: UIViewController {
         var chat: Chat?
         let realm = try! Realm()
         
-        let titleString = "新規チャット作成"
-        let messageString = "新しいチャット名を記入してください．"
-        let alert: UIAlertController = UIAlertController(title:titleString,message: messageString,preferredStyle: UIAlertController.Style.alert)
+        let alert: UIAlertController = UIAlertController(
+            title:"新規チャット作成",
+            message:"新しいチャット名を記入してください．",
+            preferredStyle: UIAlertController.Style.alert)
         //保存ボタン機能
         let okAction: UIAlertAction = UIAlertAction(
             title: "保存",
@@ -73,30 +74,47 @@ class ViewController: UIViewController {
                 }
                 */
                 
-                let updateChat: Chat
-                if let chat = chat {
-                    updateChat = chat
+                //TextFieldの中身が""だった場合
+                if alertTextField?.text == ""{
+                    let alert: UIAlertController = UIAlertController(
+                        title: "警告",
+                        message: "チャット名を記入してください",
+                        preferredStyle:  UIAlertController.Style.alert)
+                    // キャンセルボタン
+                    let cancelAction: UIAlertAction = UIAlertAction(
+                        title: "OK",
+                        style: UIAlertAction.Style.cancel,
+                        handler:{(action:UIAlertAction!) -> Void in
+                            self.addButton()
+                    })
+                    alert.addAction(cancelAction)
+                    self.present(alert, animated: true, completion: nil)
                 } else {
-                    updateChat = Chat()
-                    //updateChat.id = lastId()
-                }
-                
-                try! realm.write {
-                    //saveを押した時，入力されていたテキストをupdateに保存
-                    if let text = alertTextField?.text {
-                        updateChat.title = text
+                    let updateChat: Chat
+                    if let chat = chat {
+                        updateChat = chat
+                    } else {
+                        updateChat = Chat()
+                        //updateChat.id = lastId()
                     }
                     
-                    //saveを押した時の(日本の)時刻をupdateに保存
-                    let dt = Date()
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy/MM/dd HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
-                    updateChat.time = dateFormatter.string(from: dt)
-                    realm.add(updateChat)
-                    self.tableView.reloadData()
+                    try! realm.write {
+                        //saveを押した時，入力されていたテキストをupdateに保存
+                        if let text = alertTextField?.text {
+                            updateChat.title = text
+                        }
+                        
+                        //saveを押した時の(日本の)時刻をupdateに保存
+                        let dt = Date()
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "yyyy/MM/dd HH:mm", options: 0, locale: Locale(identifier: "ja_JP"))
+                        updateChat.time = dateFormatter.string(from: dt)
+                        realm.add(updateChat)
+                        self.tableView.reloadData()
+                    }
+                    //ChatQuestionViewController画面へ遷移
+                    self.performSegue(withIdentifier: "toSecondView", sender: true)
                 }
-                //ChatQuestionViewController画面へ遷移
-                self.performSegue(withIdentifier: "toSecondView", sender: true)
         })
         //キャンセルボタン機能
         let cancelAction: UIAlertAction = UIAlertAction(
