@@ -33,29 +33,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="GMl-dM-75d" id="13F-as-MVq"/>
-                        <segue destination="B95-6L-nlQ" kind="push" identifier="toSecondView" id="HaF-0S-4gg"/>
-                        <segue destination="NNh-1N-1k6" kind="push" identifier="toThirdView" id="ukI-kU-oey"/>
+                        <segue destination="B95-6L-nlQ" kind="push" identifier="toSecondView" id="pie-bf-3yb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
-        </scene>
-        <!--Title-->
-        <scene sceneID="eVw-OE-Qg0">
-            <objects>
-                <viewController id="NNh-1N-1k6" customClass="RespondentViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="k0r-nN-VER">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="vb2-Kb-HSH"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Title" id="dfn-n6-cTJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gTX-kI-1Uy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1990" y="-564"/>
         </scene>
         <!--Title-->
         <scene sceneID="eVB-ww-IW5">
@@ -67,11 +50,50 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PpB-eQ-hW1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="KYe-EB-ILh"/>
+                    <navigationItem key="navigationItem" title="Title" id="KYe-EB-ILh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="oyH-l8-l00">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HO0-5q-uo6" userLabel="回答者へ">
+                                <rect key="frame" x="291" y="11" width="103" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" 回答者へ" image="arrow.2.circlepath" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J3f-aE-cFI" kind="push" id="l3n-9K-V5q"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wVe-ez-TK3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1990" y="130"/>
+            <point key="canvasLocation" x="1943" y="130"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="g24-8T-L4h">
+            <objects>
+                <viewController id="J3f-aE-cFI" customClass="RespondentViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FnY-Eo-ZSh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4Ye-5c-JX4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="CcO-ng-0DV">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="NIQ-NY-EEm">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lYI-mx-e3m">
+                                <rect key="frame" x="291" y="11" width="103" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title=" 質問者へ" image="arrow.2.circlepath" catalog="system">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xrm-Um-eJZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2891" y="130"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5IB-Bd-h0T">
@@ -92,4 +114,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.2.circlepath" catalog="system" width="128" height="101"/>
+    </resources>
 </document>

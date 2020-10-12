@@ -18,10 +18,8 @@ class QuestionerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         // タイトル文字列の設定
-        self.navigationItem.title = text//"先頭ページ"
+        self.navigationItem.title = text
         /*
         //トップに戻るボタンを作成
         let leftButton = UIBarButtonItem(
@@ -32,16 +30,5 @@ class QuestionerViewController: UIViewController {
         self.navigationItem.backBarButtonItem = leftButton
          */
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
