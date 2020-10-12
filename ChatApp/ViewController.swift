@@ -38,6 +38,7 @@ class ViewController: UIViewController {
     // identifierの設定
     let editSegueIdentifier = "toEdit"
     let cellIdentifier = "cell"
+    
     /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == editSegueIdentifier {
@@ -89,6 +90,7 @@ class ViewController: UIViewController {
                     })
                     alert.addAction(cancelAction)
                     self.present(alert, animated: true, completion: nil)
+                //TextFieldの中身がきちんと入っていた場合
                 } else {
                     let updateChat: Chat
                     if let chat = chat {
@@ -154,7 +156,9 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: editSegueIdentifier, sender: chatArray[indexPath.row])
+        performSegue(withIdentifier: "toSecondView"/*editSegueIdentifier*/, sender: chatArray[indexPath.row])
+        //テーブル内の行をタップして、次の画面に遷移する???
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     //任意行のcellをDelete

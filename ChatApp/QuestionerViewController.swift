@@ -11,6 +11,7 @@ import RealmSwift
 
 class QuestionerViewController: UIViewController {
 
+    var text = ""
     var chat: Chat?
     let realm = try! Realm()
     
@@ -18,6 +19,18 @@ class QuestionerViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // タイトル文字列の設定
+        self.navigationItem.title = text//"先頭ページ"
+        /*
+        //トップに戻るボタンを作成
+        let leftButton = UIBarButtonItem(
+        title:  "戻る",
+        style:  .plain,
+        target: nil,
+        action: nil)
+        self.navigationItem.backBarButtonItem = leftButton
+         */
     }
     
 
