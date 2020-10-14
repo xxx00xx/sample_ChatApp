@@ -156,7 +156,7 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: "toSecondView"/*editSegueIdentifier*/, sender: chatArray[indexPath.row])
+        performSegue(withIdentifier: "toSecondView", sender: chatArray[indexPath.row])
         //テーブル内の行をタップして、次の画面に遷移する???
         tableView.deselectRow(at: indexPath, animated: true)
     }
