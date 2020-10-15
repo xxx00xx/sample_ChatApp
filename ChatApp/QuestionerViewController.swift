@@ -113,7 +113,7 @@ extension QuestionerViewController: MessagesDataSource {
         return Sender(id: "xxx", displayName: "Question")
     }
 
-    func otherSender() -> Sender {
+    func otherSender() -> SenderType {
         return Sender(id: "yyy", displayName: "Answer")
     }
 
@@ -175,8 +175,10 @@ extension QuestionerViewController: MessagesDisplayDelegate {
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         // message.sender.displayNameとかで送信者の名前を取得できるので
         // そこからイニシャルを生成するとよい
-        let avatar = Avatar(initials: "Q")
-        avatarView.set(avatar: avatar)
+        let avatarQ = Avatar(initials: "Q")
+        avatarView.set(avatar: avatarQ)
+        let avatarA = Avatar(initials: "A")
+        avatarView.set(avatar: avatarA)
     }
 }
 
