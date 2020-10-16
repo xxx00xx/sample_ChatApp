@@ -36,13 +36,14 @@ class QuestionerViewController: UIViewController {
 }
 */
 
-class QuestionerViewController: MessagesViewController {
+class ChatViewController: MessagesViewController {
     
     var chat: Chat?
     var chatArray: [Chat] = []
     var messageList: [MockMessage] = []
     var indexPath: Int!
     //var text = chatArray[indexPath].title
+    var message: Results<Message>!
     
     let realm = try! Realm()
 
@@ -91,10 +92,9 @@ class QuestionerViewController: MessagesViewController {
     // sample message
     func getMessages() -> [MockMessage] {
         return [
-            createMessage(text: "あああ？")
+            //createMessage(text: "あああ？")
         ]
     }
-
 
     func createMessage(text: String) -> MockMessage {
         let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
@@ -107,7 +107,7 @@ class QuestionerViewController: MessagesViewController {
     }
 }
 
-extension QuestionerViewController: MessagesDataSource {
+extension ChatViewController: MessagesDataSource {
 
     func currentSender() -> SenderType {
         return Sender(id: "xxx", displayName: "Question")
@@ -125,7 +125,7 @@ extension QuestionerViewController: MessagesDataSource {
         return messageList[indexPath.section]
     }
 
-    // メッセージの上に文字を表示
+    // 3メッセージ毎に時刻を表示　→ 時刻が変わる際に，表示したい．
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if indexPath.section % 3 == 0 {
             return NSAttributedString(
@@ -137,13 +137,13 @@ extension QuestionerViewController: MessagesDataSource {
         return nil
     }
 
-    // メッセージの上に文字を表示（名前）
+    // メッセージの上に名前を表示
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
         return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
     }
 
-    // メッセージの下に文字を表示（日付）
+    // メッセージの下に日付を表示
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let dateString = formatter.string(from: message.sentDate)
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
@@ -151,7 +151,7 @@ extension QuestionerViewController: MessagesDataSource {
 }
 
 // メッセージのdelegate
-extension QuestionerViewController: MessagesDisplayDelegate {
+extension ChatViewController: MessagesDisplayDelegate {
 
     // メッセージの色を変更（デフォルトは自分：白、相手：黒）
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
@@ -176,15 +176,19 @@ extension QuestionerViewController: MessagesDisplayDelegate {
         // message.sender.displayNameとかで送信者の名前を取得できるので
         // そこからイニシャルを生成するとよい
         let avatarQ = Avatar(initials: "Q")
-        avatarView.set(avatar: avatarQ)
         let avatarA = Avatar(initials: "A")
-        avatarView.set(avatar: avatarA)
+        avatarView.set(avatar: avatarQ)
+        /*
+        if message[indexPath.row].senderId == currentSender {
+            avatarView.set(avatar: avatarQ)
+        }
+        */
     }
 }
 
 
 // 各ラベルの高さを設定（デフォルト0なので必須）
-extension QuestionerViewController: MessagesLayoutDelegate {
+extension ChatViewController: MessagesLayoutDelegate {
 
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         if indexPath.section % 3 == 0 { return 10 }
@@ -200,14 +204,14 @@ extension QuestionerViewController: MessagesLayoutDelegate {
     }
 }
 
-extension QuestionerViewController: MessageCellDelegate {
+extension ChatViewController: MessageCellDelegate {
     // メッセージをタップした時の挙動→削除とか編集で後々使う
     func didTapMessage(in cell: MessageCollectionViewCell) {
         print("Message tapped")
     }
 }
 
-extension QuestionerViewController: InputBarAccessoryViewDelegate {
+extension ChatViewController: InputBarAccessoryViewDelegate {
     // メッセージ送信ボタンをタップした時の挙動
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
@@ -220,7 +224,20 @@ extension QuestionerViewController: InputBarAccessoryViewDelegate {
         messageList.append(message)
         messagesCollectionView.insertSections([messageList.count - 1])
         }
+        //messageモデルをrealmに保存する．
+        //インスタンスの取得
         
+        let realm = try! Realm()
+        
+        let chat = ChatData()
+        
+        //書き込み処理
+        try! realm.write {
+            //chat.content = 
+            realm.add(message)
+            print(message)
+        }
+    
         //inputBarの中のテキストを表示して
         inputBar.inputTextView.text = ""
         

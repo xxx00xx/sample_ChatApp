@@ -39,14 +39,16 @@ class ViewController: UIViewController {
     let editSegueIdentifier = "toEdit"
     let cellIdentifier = "cell"
     
-    /*
+     var message: Message?
+    
+    //sugueを準備するときに呼ばれるメゾッド
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == editSegueIdentifier {
-            let viewController = segue.destination as! QuestionerViewController
+        if segue.identifier == "toSecondView" {
+            let viewController = segue.destination as! ChatViewController
             viewController.chat = sender as? Chat
+            viewController.message = self.message
         }
     }
-     */
 
     @IBAction func addButton(){
         /*------以下，新規チャットルーム作成用のアラート機能------*/
@@ -104,6 +106,13 @@ class ViewController: UIViewController {
                         //saveを押した時，入力されていたテキストをupdateに保存
                         if let text = alertTextField?.text {
                             updateChat.title = text
+                            let dictionary: [String: Any] =
+                            ["messageTitle": text,
+                             "chatData":[]  //初期化
+                            ]
+                            let message = Message(value: dictionary)
+                            realm.add(message)
+                            print(message)
                         }
                         
                         //saveを押した時の(日本の)時刻をupdateに保存

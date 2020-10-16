@@ -43,7 +43,7 @@
         <!--Title-->
         <scene sceneID="eVB-ww-IW5">
             <objects>
-                <viewController id="B95-6L-nlQ" customClass="QuestionerViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="B95-6L-nlQ" customClass="ChatViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Div-K9-ec8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,12 +55,9 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HO0-5q-uo6" userLabel="回答者へ">
                                 <rect key="frame" x="291" y="11" width="103" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title=" 回答者へ" image="arrow.2.circlepath" catalog="system">
+                                <state key="normal" title=" 切り替え" image="arrow.2.circlepath" catalog="system">
                                     <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="J3f-aE-cFI" kind="push" id="l3n-9K-V5q"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

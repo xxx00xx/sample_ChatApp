@@ -10,11 +10,12 @@
 		25C4528E079EA21006D71362 /* Pods_ChatApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6064BB6FC79AAD0C724EEA9D /* Pods_ChatApp.framework */; };
 		CB78CB4BD8DC3510BDC8CE70 /* Pods_ChatAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F5849BA87DBFEE30D43F96 /* Pods_ChatAppTests.framework */; };
 		D2012E32FD36E2C5E5D696CD /* Pods_ChatApp_ChatAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFD3519BD41654406F1BF2C0 /* Pods_ChatApp_ChatAppUITests.framework */; };
+		E20373CF253A035800356915 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20373CE253A035800356915 /* Message.swift */; };
 		E24FD16425376E9600687520 /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24FD16325376E9600687520 /* MockMessage.swift */; };
 		E252AA42253234A400BDD317 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252AA40253234A400BDD317 /* ChatTableViewCell.swift */; };
 		E252AA43253234A400BDD317 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E252AA41253234A400BDD317 /* ChatTableViewCell.xib */; };
-		E252AA452532350300BDD317 /* QuestionerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252AA442532350300BDD317 /* QuestionerViewController.swift */; };
-		E252AA472532355200BDD317 /* RespondentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252AA462532355200BDD317 /* RespondentViewController.swift */; };
+		E252AA452532350300BDD317 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252AA442532350300BDD317 /* ChatViewController.swift */; };
+		E252AA472532355200BDD317 /* -----ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252AA462532355200BDD317 /* -----ViewController.swift */; };
 		E252AA492532356900BDD317 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252AA482532356900BDD317 /* Chat.swift */; };
 		E2851CB02531C61300127D01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851CAF2531C61300127D01 /* AppDelegate.swift */; };
 		E2851CB22531C61300127D01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2851CB12531C61300127D01 /* SceneDelegate.swift */; };
@@ -52,11 +53,12 @@
 		CF80B55EB4F2DC0B3D2CE92D /* Pods-ChatAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatAppTests.release.xcconfig"; path = "Target Support Files/Pods-ChatAppTests/Pods-ChatAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D695E970238F5003A3A2F7A9 /* Pods-ChatApp-ChatAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp-ChatAppUITests.release.xcconfig"; path = "Target Support Files/Pods-ChatApp-ChatAppUITests/Pods-ChatApp-ChatAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DF466DF8436D64C55CA20489 /* Pods-ChatApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatApp.release.xcconfig"; path = "Target Support Files/Pods-ChatApp/Pods-ChatApp.release.xcconfig"; sourceTree = "<group>"; };
+		E20373CE253A035800356915 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		E24FD16325376E9600687520 /* MockMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
 		E252AA40253234A400BDD317 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		E252AA41253234A400BDD317 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
-		E252AA442532350300BDD317 /* QuestionerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionerViewController.swift; sourceTree = "<group>"; };
-		E252AA462532355200BDD317 /* RespondentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespondentViewController.swift; sourceTree = "<group>"; };
+		E252AA442532350300BDD317 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		E252AA462532355200BDD317 /* -----ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "-----ViewController.swift"; sourceTree = "<group>"; };
 		E252AA482532356900BDD317 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		E2851CAC2531C61300127D01 /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2851CAF2531C61300127D01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,13 +156,14 @@
 				E2851CAF2531C61300127D01 /* AppDelegate.swift */,
 				E2851CB12531C61300127D01 /* SceneDelegate.swift */,
 				E2851CB32531C61300127D01 /* ViewController.swift */,
-				E252AA442532350300BDD317 /* QuestionerViewController.swift */,
-				E252AA462532355200BDD317 /* RespondentViewController.swift */,
+				E252AA442532350300BDD317 /* ChatViewController.swift */,
+				E252AA462532355200BDD317 /* -----ViewController.swift */,
 				E2851CB52531C61300127D01 /* Main.storyboard */,
 				E2851CB82531C61600127D01 /* Assets.xcassets */,
 				E2851CBA2531C61600127D01 /* LaunchScreen.storyboard */,
 				E2851CBD2531C61600127D01 /* Info.plist */,
 				E252AA482532356900BDD317 /* Chat.swift */,
+				E20373CE253A035800356915 /* Message.swift */,
 				E24FD16325376E9600687520 /* MockMessage.swift */,
 				E252AA40253234A400BDD317 /* ChatTableViewCell.swift */,
 				E252AA41253234A400BDD317 /* ChatTableViewCell.xib */,
@@ -429,11 +432,12 @@
 				E2851CB42531C61300127D01 /* ViewController.swift in Sources */,
 				E252AA42253234A400BDD317 /* ChatTableViewCell.swift in Sources */,
 				E2851CB02531C61300127D01 /* AppDelegate.swift in Sources */,
+				E20373CF253A035800356915 /* Message.swift in Sources */,
 				E24FD16425376E9600687520 /* MockMessage.swift in Sources */,
 				E2851CB22531C61300127D01 /* SceneDelegate.swift in Sources */,
 				E252AA492532356900BDD317 /* Chat.swift in Sources */,
-				E252AA472532355200BDD317 /* RespondentViewController.swift in Sources */,
-				E252AA452532350300BDD317 /* QuestionerViewController.swift in Sources */,
+				E252AA472532355200BDD317 /* -----ViewController.swift in Sources */,
+				E252AA452532350300BDD317 /* ChatViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
